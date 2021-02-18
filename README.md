@@ -9,7 +9,7 @@ app which would allow you to create quizzes which Quizling could then run matche
 Spring Boot, MongoDb
 
 ## Running the app
-Run the app with `mvn spring-boot:run`
+Run the app with `mvn spring-boot:run`. The Swagger UI will be accessible at `localhost:{port}/quizling/swagger-ui/`
 
 ## Configuration options
 In order to run the app you'll need to point it to a Mongo database. The connection details
