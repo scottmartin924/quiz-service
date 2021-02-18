@@ -4,9 +4,13 @@ import com.quizling.quizservice.dto.QuestionDto;
 import com.quizling.quizservice.dto.QuizDto;
 import com.quizling.quizservice.entity.Question;
 import com.quizling.quizservice.entity.Quiz;
+import com.quizling.quizservice.web.QuizController;
+import org.springframework.hateoas.Link;
 
 import java.time.Instant;
-import java.time.ZonedDateTime;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 /**
  * Convert Quiz dtos to entities and vice versa
@@ -20,14 +24,16 @@ public class QuizMapper implements Mapper<QuizDto, Quiz> {
 
     @Override
     public QuizDto entityToDto(Quiz entity) {
-        return QuizDto.builder()
+        final QuizDto dto = QuizDto.builder()
                 .id(entity.getId())
                 .name(entity.getName())
                 .owner(entity.getOwner())
                 .questions(questionMapper.entityToDto(entity.getQuestions()))
-                .created(ZonedDateTime.from(entity.getCreated()))
-                .lastUpdated(ZonedDateTime.from(entity.getLastUpdated()))
+                .created(entity.getCreated())
+                .lastUpdated(entity.getLastUpdated())
                 .build();
+        dto.add(createSelfLink(dto));
+        return dto;
     }
 
     @Override
@@ -38,8 +44,17 @@ public class QuizMapper implements Mapper<QuizDto, Quiz> {
                 .name(dto.getName())
                 .owner(dto.getOwner())
                 .questions(questionMapper.dtoToEntity(dto.getQuestions()))
-                .created(dto.getCreated() != null ? dto.getCreated().toInstant() : Instant.now())
-                .lastUpdated(dto.getLastUpdated() != null ? dto.getLastUpdated().toInstant() : Instant.now())
+                .created(dto.getCreated() != null ? dto.getCreated() : Instant.now())
+                .lastUpdated(dto.getLastUpdated() != null ? dto.getLastUpdated() : Instant.now())
                 .build();
+    }
+
+    /**
+     * Create self link to add to dto
+     * @param quiz the quiz dto to add the link to
+     * @return the self link
+     */
+    private Link createSelfLink(final QuizDto quiz) {
+        return linkTo(methodOn(QuizController.class).findQuiz(quiz.getId(), quiz.getOwner())).withSelfRel();
     }
 }

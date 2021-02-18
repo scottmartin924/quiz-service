@@ -4,10 +4,10 @@ package com.quizling.quizservice.error;
  * Class to encapsulate error messages...not great just quickly thrown together
  */
 public class ErrorMessage {
-    public static final ErrorMessage QUIZ_EXISTS = new ErrorMessage("Quiz name %s for user %s already exists!");
+    public static final ErrorMessage QUIZ_EXISTS = new ErrorMessage("Quiz name '%s' for user '%s' already exists!");
     public static final ErrorMessage NOT_FOUND = new ErrorMessage("Quiz id %s not found!");
-    public static final ErrorMessage NOT_FOUND_NAME_OWNER = new ErrorMessage("Quiz name %s with owner %s was not found!");
-    public static final ErrorMessage NAME_VALIDATION_ERROR = new ErrorMessage("Quiz name %s invalid. Quiz names must be non-empty and alphanumeric.");
+    public static final ErrorMessage NOT_FOUND_NAME_OWNER = new ErrorMessage("Quiz name '%s' for owner '%s' was not found!");
+    public static final ErrorMessage NAME_VALIDATION_ERROR = new ErrorMessage("Quiz name '%s' invalid. Quiz names must be non-empty and contain only letters, numbers, and spaces.");
 
     final String message;
     private ErrorMessage(String msg) {

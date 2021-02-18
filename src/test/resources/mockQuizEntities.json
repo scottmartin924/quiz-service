@@ -1,0 +1,168 @@
+[
+    {
+      "id": "602c23b9c71eb515503948c2",
+      "name": "Test Quiz",
+      "owner": "scott",
+      "questions": [
+        {
+          "questionText": "What's your favorite color?",
+          "answers": [
+            {
+              "answerText": "Blue",
+              "correct": true
+            },
+            {
+              "answerText": "Red",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "questionText": "Who is considered the father of the atomic bomb?",
+          "answers": [
+            {
+              "answerText": "Albert Einstein",
+              "correct": false
+            },
+            {
+              "answerText": "Robert Oppenheimer",
+              "correct": true
+            },
+            {
+              "answerText": "Richard Feynman",
+              "correct": false
+            },
+            {
+              "answerText": "Enrico Fermi",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "questionText": "What's the name given to material from a melted nuclear reactor core?",
+          "answers": [
+            {
+              "answerText": "Radium",
+              "correct": false
+            },
+            {
+              "answerText": "Uranium",
+              "correct": false
+            },
+            {
+              "answerText": "Plasma",
+              "correct": false
+            },
+            {
+              "answerText": "Corium",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "created": "2021-02-16T19:57:45.026Z",
+      "lastUpdated": "2021-02-16T19:57:45.026Z"
+    },
+  {
+    "id": "602c9fe62ecd9335fbd35193",
+    "name": "TestQuiz100",
+    "owner": "scott",
+    "questions": [
+      {
+        "questionText": "Who is considered the father of the atomic bomb?",
+        "answers": [
+          {
+            "answerText": "Albert Einstein",
+            "correct": false
+          },
+          {
+            "answerText": "Robert Oppenheimer",
+            "correct": true
+          },
+          {
+            "answerText": "Richard Feynman",
+            "correct": false
+          },
+          {
+            "answerText": "Enrico Fermi",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionText": "What's the name given to material from a melted nuclear reactor core?",
+        "answers": [
+          {
+            "answerText": "Radium",
+            "correct": false
+          },
+          {
+            "answerText": "Uranium",
+            "correct": false
+          },
+          {
+            "answerText": "Plasma",
+            "correct": false
+          },
+          {
+            "answerText": "Corium",
+            "correct": true
+          }
+        ]
+      }
+    ],
+    "created": "2021-02-17T04:47:34.519Z",
+    "lastUpdated": "2021-02-17T04:47:34.519Z"
+  },
+    {
+      "id": "602ca0052ecd9335fbd35194",
+      "name": "TestQuiz4",
+      "owner": "scott",
+      "questions": [
+        {
+          "questionText": "Who is considered the father of the atomic bomb?",
+          "answers": [
+            {
+              "answerText": "Albert Einstein",
+              "correct": false
+            },
+            {
+              "answerText": "Robert Oppenheimer",
+              "correct": true
+            },
+            {
+              "answerText": "Richard Feynman",
+              "correct": false
+            },
+            {
+              "answerText": "Enrico Fermi",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "questionText": "What's the name given to material from a melted nuclear reactor core?",
+          "answers": [
+            {
+              "answerText": "Radium",
+              "correct": false
+            },
+            {
+              "answerText": "Uranium",
+              "correct": false
+            },
+            {
+              "answerText": "Plasma",
+              "correct": false
+            },
+            {
+              "answerText": "Corium",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "created": "2021-02-17T04:48:05.642Z",
+      "lastUpdated": "2021-02-17T04:48:05.642Z"
+    }
+]

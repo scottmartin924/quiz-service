@@ -7,5 +7,6 @@ package com.quizling.quizservice.error;
  */
 public enum ErrorStatus {
     VALIDATTION_ERROR,
-    NOT_FOUND
+    NOT_FOUND,
+    CONFLICT
 }

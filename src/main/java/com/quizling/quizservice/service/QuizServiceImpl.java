@@ -20,7 +20,7 @@ public class QuizServiceImpl implements QuizService {
     final private QuizRepository quizRepository;
     final private Mapper<QuizDto, Quiz> quizMapper;
 
-    final private Pattern NAME_PATTERN = Pattern.compile("[A-Za-z0-9]");
+    final private Pattern NAME_PATTERN = Pattern.compile("^[A-Za-z0-9 ]*");
 
     @Autowired
     public QuizServiceImpl(QuizRepository quizRepository, Mapper<QuizDto, Quiz> quizMapper) {
@@ -39,7 +39,7 @@ public class QuizServiceImpl implements QuizService {
 
         // Check name/owner combo unique
         if (quizRepository.existsByNameAndOwner(quizName, dto.getOwner())) {
-            throw new QuizServiceException(ErrorMessage.bind(ErrorMessage.QUIZ_EXISTS), ErrorStatus.VALIDATTION_ERROR);
+            throw new QuizServiceException(ErrorMessage.bind(ErrorMessage.QUIZ_EXISTS, quizName, dto.getOwner()), ErrorStatus.VALIDATTION_ERROR);
         }
 
         final Quiz entity = quizRepository.insert(quizMapper.dtoToEntity(dto));
@@ -84,8 +84,9 @@ public class QuizServiceImpl implements QuizService {
                     ErrorMessage.bind(ErrorMessage.NAME_VALIDATION_ERROR, dto.getName()), ErrorStatus.VALIDATTION_ERROR);
         }
 
-        // Check quiz name/owner unique
-        if (quizRepository.existsByNameAndOwner(dto.getName(), dto.getOwner())) {
+        // Check quiz name/owner unique (find quiz by name and owner and if not this quiz id then throw error
+        final List<Quiz> existingQuiz = quizRepository.findByNameAndOwner(dto.getName(), dto.getOwner());
+        if (!existingQuiz.isEmpty() && !existingQuiz.get(0).getId().equals(id)) {
             throw new QuizServiceException(ErrorMessage.bind(ErrorMessage.QUIZ_EXISTS, dto.getName(), dto.getOwner()), ErrorStatus.VALIDATTION_ERROR);
         }
 
